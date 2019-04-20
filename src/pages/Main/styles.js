@@ -15,13 +15,13 @@ export const Form = styled.form`
 
   input {
     flex: 1;
-    border: 0;
     color: #444;
     height: 55px;
     font-size: 18px;
     background: #fff;
     padding: 0 20px;
     border-radius: 3px;
+    border: ${props => (props.error ? '2px solid #f00' : 0)};
   }
 
   button {

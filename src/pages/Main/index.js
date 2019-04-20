@@ -7,6 +7,7 @@ import CompareList from '../../components/CompareList';
 
 class Main extends Component {
   state = {
+    error: false,
     repositories: [],
     repositoryInput: '',
   };
@@ -24,11 +25,12 @@ class Main extends Component {
       repository.lastCommit = moment(repository.pushed_at).fromNow();
 
       this.setState({
+        error: false,
         repositoryInput: '',
         repositories: [...this.state.repositories, repository],
       });
     } catch (err) {
-      console.log(err);
+      this.setState({ error: true });
     }
   };
 
@@ -36,7 +38,7 @@ class Main extends Component {
     return (
       <Container>
         <img src={logo} alt="GitHub Compare" />
-        <Form onSubmit={this.handleAddRepository}>
+        <Form error={this.state.error} onSubmit={this.handleAddRepository}>
           <input
             type="text"
             onChange={this.handleInput}
