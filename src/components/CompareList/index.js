@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { distanceInWords } from 'date-fns';
-import en from 'date-fns/locale/en';
 
 import { Container, Repository } from './styles';
 
@@ -30,7 +28,7 @@ const CompareList = ({ repositories }) => (
               <small>issues</small>
             </li>
             <li>
-              {distanceInWords(r.pushed_at, new Date(), { locale: en })}
+              {r.lastCommit}
               <small>last commit</small>
             </li>
           </ul>
