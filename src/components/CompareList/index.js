@@ -8,7 +8,7 @@ const CompareList = ({ repositories }) => (
   <Container>
     {repositories
       && repositories.map(r => (
-        <Repository>
+        <Repository key={r.id}>
           <header>
             <img src={r.owner.avatar_url} alt={r.owner.login} />
             <strong>{r.name}</strong>
