@@ -36,8 +36,8 @@ class Main extends Component {
         <Form onSubmit={this.handleAddRepository}>
           <input
             type="text"
-            placeholder="Usuário/repositório"
             onChange={this.handleInput}
+            placeholder="Usuário/repositório"
             value={this.state.repositoryInput}
           />
           <button type="submit">OK</button>
