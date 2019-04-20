@@ -15,11 +15,11 @@ export const Repository = styled.div`
   border-radius: 3px;
   flex-direction: column;
 
-  header{
-    padding 30px;
+  header {
     display: flex;
-    flex-direction: column;
+    padding: 30px;
     align-items: center;
+    flex-direction: column;
   }
 
   img {
@@ -32,8 +32,8 @@ export const Repository = styled.div`
   }
 
   small {
-    fton-size:14px;
-    color:#666;
+    color: #666;
+    font-size: 14px;
   }
 
   ul {
@@ -44,10 +44,11 @@ export const Repository = styled.div`
       padding: 12px 20px;
 
       small {
-        font-weight: normal;
+        color: #999;
         font-size: 12px;
-        color:#999;
+        margin-left: 4px;
         font-style: italic;
+        font-weight: normal;
       }
 
       &:nth-child(2n-1) {
