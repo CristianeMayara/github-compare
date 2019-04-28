@@ -5,8 +5,10 @@ This app uses the GitHub API: [https://api.github.com/repos/facebook/react](http
 ## Technologies
 
 - ReactJS
+- Redux
 - Styled components
 - PropTypes
+- React Router
 - Axios
 - Moment.js
 - Babel
