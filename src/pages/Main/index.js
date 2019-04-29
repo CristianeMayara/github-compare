@@ -47,21 +47,8 @@ class Main extends Component {
 
   handleAddFavorite = (e) => {
     e.preventDefault();
-    const repo = {
-      id: 123,
-      name: 'teste',
-      owner: {
-        login: 'teste',
-        avatar_url:
-          'https://image.freepik.com/free-vector/vector-lightning-icon-logo-symbols-template_8075-62.jpg',
-      },
-      stargazers_count: 123,
-      forks_count: 321,
-      open_issues_count: 456,
-      pushed_at: 'teste',
-    };
 
-    this.props.addFavorite(repo);
+    this.props.addFavoriteRequest(this.state.repositoryInput);
   };
 
   render() {
@@ -88,7 +75,7 @@ class Main extends Component {
 }
 
 Main.propTypes = {
-  addFavorite: PropTypes.func.isRequired,
+  addFavoriteRequest: PropTypes.func.isRequired,
   favorites: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,
