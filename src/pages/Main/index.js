@@ -14,8 +14,6 @@ import CompareList from '../../components/CompareList';
 class Main extends Component {
   state = {
     error: false,
-    loading: false,
-    repositories: [],
     repositoryInput: '',
   };
 
@@ -23,7 +21,7 @@ class Main extends Component {
     this.setState({ repositoryInput: e.target.value });
   };
 
-  handleAddRepository = async (e) => {
+  /* handleAddRepository = async (e) => {
     e.preventDefault();
 
     this.setState({ loading: true });
@@ -43,7 +41,7 @@ class Main extends Component {
     } finally {
       this.setState({ loading: false });
     }
-  };
+  }; */
 
   handleAddFavorite = (e) => {
     e.preventDefault();
@@ -64,11 +62,11 @@ class Main extends Component {
             value={this.state.repositoryInput}
           />
           <button type="submit">
-            {this.state.loading ? <i className="fa fa-spinner fa-pulse" /> : 'OK'}
+            {this.props.loading ? <i className="fa fa-spinner fa-pulse" /> : 'OK'}
           </button>
         </Form>
 
-        <CompareList repositories={this.state.repositories} />
+        <CompareList repositories={this.props.favorites} />
       </Container>
     );
   }
@@ -76,6 +74,7 @@ class Main extends Component {
 
 Main.propTypes = {
   addFavoriteRequest: PropTypes.func.isRequired,
+  loading: PropTypes.bool,
   favorites: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,
@@ -93,7 +92,8 @@ Main.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  favorites: state.favorites,
+  favorites: state.favorites.data,
+  loading: state.favorites.loading,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(FavoriteActions, dispatch);
