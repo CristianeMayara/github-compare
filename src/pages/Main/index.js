@@ -21,28 +21,6 @@ class Main extends Component {
     this.setState({ repositoryInput: e.target.value });
   };
 
-  /* handleAddRepository = async (e) => {
-    e.preventDefault();
-
-    this.setState({ loading: true });
-
-    try {
-      const { data: repository } = await api.get(`/repos/${this.state.repositoryInput}`);
-
-      repository.lastCommit = moment(repository.pushed_at).fromNow();
-
-      this.setState({
-        error: false,
-        repositoryInput: '',
-        repositories: [...this.state.repositories, repository],
-      });
-    } catch (err) {
-      this.setState({ error: true });
-    } finally {
-      this.setState({ loading: false });
-    }
-  }; */
-
   handleAddFavorite = (e) => {
     e.preventDefault();
 
