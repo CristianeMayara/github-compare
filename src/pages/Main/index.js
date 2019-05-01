@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import * as FavoriteActions from '../../store/actions/favorites';
 
 import logo from '../../assets/logo.png';
-import { Container, Form } from './styles';
+import { Container, Error, Form } from './styles';
 import CompareList from '../../components/CompareList';
 
 class Main extends Component {
@@ -26,23 +26,24 @@ class Main extends Component {
   };
 
   render() {
+    const { error, loading, favorites } = this.props;
     return (
       <Container>
         <img src={logo} alt="GitHub Compare" />
 
-        <Form error={!!this.props.error} onSubmit={this.handleAddFavorite}>
+        <Form error={!!error} onSubmit={this.handleAddFavorite}>
           <input
             type="text"
             onChange={this.handleInput}
             placeholder="Usuário/repositório"
             value={this.state.repositoryInput}
           />
-          <button type="submit">
-            {this.props.loading ? <i className="fa fa-spinner fa-pulse" /> : 'OK'}
-          </button>
+          <button type="submit">{loading ? <i className="fa fa-spinner fa-pulse" /> : 'OK'}</button>
         </Form>
 
-        <CompareList repositories={this.props.favorites} />
+        {!!error && <Error>{error}</Error>}
+
+        <CompareList repositories={favorites} />
       </Container>
     );
   }

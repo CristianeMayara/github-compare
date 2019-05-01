@@ -7,7 +7,7 @@ const INITIAL_STATE = {
 export default function favorites(state = INITIAL_STATE, action) {
   switch (action.type) {
     case 'ADD_FAVORITE_REQUEST':
-      return { ...state, loading: true };
+      return { ...state, loading: true, error: null };
     case 'ADD_FAVORITE_SUCCESS':
       return {
         ...state,

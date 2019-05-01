@@ -22,6 +22,7 @@ export const Form = styled.form`
     background: #fff;
     border-radius: 3px;
     border: ${props => (props.error ? '2px solid #f00' : 0)};
+    margin-bottom: ${props => (props.error ? null : '30px')};
   }
 
   button {
@@ -41,4 +42,9 @@ export const Form = styled.form`
       cursor: pointer;
     }
   }
+`;
+
+export const Error = styled.span`
+  color: #f00;
+  height: 30px;
 `;
