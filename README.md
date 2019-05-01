@@ -6,6 +6,7 @@ This app uses the GitHub API: [https://api.github.com/repos/facebook/react](http
 
 - ReactJS
 - Redux
+- Saga
 - Styled components
 - PropTypes
 - React Router
