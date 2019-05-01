@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import moment from 'moment';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as FavoriteActions from '../../store/actions/favorites';
-
-import api from '../../services/api';
 
 import logo from '../../assets/logo.png';
 import { Container, Form } from './styles';
@@ -13,7 +10,6 @@ import CompareList from '../../components/CompareList';
 
 class Main extends Component {
   state = {
-    error: false,
     repositoryInput: '',
   };
 
@@ -34,7 +30,7 @@ class Main extends Component {
       <Container>
         <img src={logo} alt="GitHub Compare" />
 
-        <Form error={this.state.error} onSubmit={this.handleAddFavorite}>
+        <Form error={!!this.props.error} onSubmit={this.handleAddFavorite}>
           <input
             type="text"
             onChange={this.handleInput}
@@ -54,7 +50,8 @@ class Main extends Component {
 
 Main.propTypes = {
   addFavoriteRequest: PropTypes.func.isRequired,
-  loading: PropTypes.bool,
+  loading: PropTypes.bool.isRequired,
+  error: PropTypes.string.isRequired,
   favorites: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,
@@ -74,6 +71,7 @@ Main.propTypes = {
 const mapStateToProps = state => ({
   favorites: state.favorites.data,
   loading: state.favorites.loading,
+  error: state.favorites.error,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(FavoriteActions, dispatch);

@@ -8,10 +8,10 @@ export const Container = styled.div`
 `;
 
 export const Form = styled.form`
-  margin-top: 20px;
   width: 100%;
-  max-width: 400px;
   display: flex;
+  margin-top: 20px;
+  max-width: 400px;
 
   input {
     flex: 1;
