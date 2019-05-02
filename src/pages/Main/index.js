@@ -52,7 +52,7 @@ class Main extends Component {
 Main.propTypes = {
   addFavoriteRequest: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
-  error: PropTypes.string.isRequired,
+  error: PropTypes.oneOf([null, PropTypes.string]).isRequired,
   favorites: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,

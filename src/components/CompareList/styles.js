@@ -1,10 +1,18 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  width: 100%;
   display: flex;
+  flex-wrap: wrap;
+  padding: 20px 0;
   margin-top: 50px;
+  overflow: hidden;
   align-items: center;
   flex-direction: row;
+  justify-content: center;
+  background-color: #b791ed;
+  border-top: 1px solid #fff;
+  height: ${props => (props.isEmpty ? '386px' : null)};
 `;
 
 export const Repository = styled.div`

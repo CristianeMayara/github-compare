@@ -3,13 +3,9 @@ import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 
-const Footer = ({ count }) => (
-  <p>
-    Você tem
-    {count}
-    favoritos
-  </p>
-);
+import { Text } from './styles';
+
+const Footer = ({ count }) => <Text>{`Você tem ${count} favoritos`}</Text>;
 
 Footer.propTypes = {
   count: PropTypes.number.isRequired,
