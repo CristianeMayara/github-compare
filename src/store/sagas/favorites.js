@@ -1,4 +1,6 @@
 import { call, put } from 'redux-saga/effects';
+import moment from 'moment';
+
 import api from '../../services/api';
 
 import { addFavoriteSuccess, addFavoriteFailure } from '../actions/favorites';
@@ -18,6 +20,7 @@ export function* addFavorite(action) {
       forks_count: data.forks_count,
       open_issues_count: data.open_issues_count,
       pushed_at: data.pushed_at,
+      lastCommit: moment(data.pushed_at).fromNow(),
     };
 
     yield put(addFavoriteSuccess(repositoryData));

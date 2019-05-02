@@ -11,7 +11,7 @@ export const Container = styled.div`
   flex-direction: row;
   justify-content: center;
   background-color: #b791ed;
-  border-top: 1px solid #fff;
+  /* border: 1px solid #fff; */
   height: ${props => (props.isEmpty ? '386px' : null)};
 `;
 
