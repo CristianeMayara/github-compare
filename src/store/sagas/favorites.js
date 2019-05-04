@@ -3,7 +3,7 @@ import moment from 'moment';
 
 import api from '../../services/api';
 
-import { addFavoriteSuccess, addFavoriteFailure } from '../actions/favorites';
+import { Creators as FavoriteActions } from '../ducks/favorites';
 
 export function* addFavorite(action) {
   try {
@@ -12,7 +12,7 @@ export function* addFavorite(action) {
     const isDuplicated = yield select(state => state.favorites.data.find(favorite => favorite.id === data.id));
 
     if (isDuplicated) {
-      yield put(addFavoriteFailure('Repositório duplicado'));
+      yield put(FavoriteActions.addFavoriteFailure('Repositório duplicado'));
     } else {
       const repositoryData = {
         id: data.id,
@@ -28,9 +28,9 @@ export function* addFavorite(action) {
         lastCommit: moment(data.pushed_at).fromNow(),
       };
 
-      yield put(addFavoriteSuccess(repositoryData));
+      yield put(FavoriteActions.addFavoriteSuccess(repositoryData));
     }
   } catch (err) {
-    yield put(addFavoriteFailure('Erro ao adicionar repositório'));
+    yield put(FavoriteActions.addFavoriteFailure('Erro ao adicionar repositório'));
   }
 }
